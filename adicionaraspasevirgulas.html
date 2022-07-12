@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar</title>
+  <style type="text/css">
+    html {
+      font-family: Arial;
+    }
+
+    body {
+      margin: 30spx;
+    }
+
+    .fundo {
+      background: #111;
+      width: auto;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .amarelo1 {
+      color: #febe01;
+    }
+
+    .white {
+      color: white;
+    }
+
+    .titulo {
+      color: rgb(53, 45, 45);
+      text-align: center
+    }
+
+    .back {
+      font-size: 20px;
+      width: auto;
+      height: 80px;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    .backfull {
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 0px;
+      background: #eeee8923;
+      border: 4px solid rgba(17, 17, 17, 0.575);
+      padding: 20px;
+    }
+
+    .textoinfo {
+      color: rgb(53, 45, 45);
+      margin: 10px;
+    }
+
+    .textoinfo3 {
+      color: rgb(53, 45, 45);
+      border: 2px solid rgb(110, 106, 106);
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .textoinfo2 {
+      color: rgb(53, 45, 45);
+      margin: 20px;
+      text-align: center;
+    }
+
+    .botao {
+      width: 90px;
+      height: 30px;
+      font-weight: auto;
+      border-radius: 4px;
+      background-color: rgb(53, 45, 45);
+      border-top-color: #FFFFFF;
+      border-right-color: #FFFFFF;
+      border-bottom-color: #FFFFFF;
+      border-left-color: #FFFFFF;
+      color: #febe01;
+      font-weight: 700;
+    }
+
+    .botaolimpar {
+      width: 90px;
+      height: 50px;
+      font-weight: auto;
+      border-radius: 4px;
+      background-color: rgb(53, 45, 45);
+      border-top-color: #FFFFFF;
+      border-right-color: #FFFFFF;
+      border-bottom-color: #FFFFFF;
+      border-left-color: #FFFFFF;
+      color: #febe01;
+      font-weight: 700;
+    }
+
+    .caixatexto {
+      width: 450px;
+    }
+
+    p {
+      font-size: 12px;
+      margin: 90px;
+    }
+  </style>
+
+  <script>
+    function ClearFields() {
+      document.getElementById("text1").value = "";
+      document.getElementById("text2").value = "";
+    }
+  </script>
+
+  <script language=javascript type="text/javascript">
+    function adicionarAspasEVirgulas() {
+      let novaString = '"' + form1.texto.value.replace(/ /g, '","') + '"'
+      let novaArray = novaString.split(",")
+      let finalArray = novaArray.filter(function (p) {
+        return (p != '""')
+      })
+      navigator.clipboard.writeText(finalArray.toString().toUpperCase())
+      alert("Pronto! Seu texto foi copiado para a área de transferência.")
+    }
+  </script>
+
+  <script language=javascript type="text/javascript">
+    function adicionarVirgulas() {
+      let novaString = form.texto.value.replace(/[, ]+/g, ",")
+      navigator.clipboard.writeText(novaString.toUpperCase())
+      alert("Pronto! Seu texto foi copiado para a área de transferência.")
+    }
+  </script>
+</head>
+
+<body>
+  <div class="backfull">
+    <div class="back">
+      <h1 class="titulo">Adicionar Aspas e Vírgulas</h1>
+    </div>
+
+    <div class="textoinfo2">
+      <h3>Copie e cole os códigos na caixa de texto e clique em Adicionar!</h3>
+    </div>
+    <div class="fundo">
+      <h3 class="white">Adicionar <span class="amarelo1">vírgula</span> entre os códigos:</h3>
+      <form class="textoinfo" name="form">
+        <input id="text1" class="caixatexto" placeholder="Ex.: LV123456 LV654321 LV987654 LV753159" type=text name="texto">
+        <input class="botao" value="Adicionar!" type=button onClick="adicionarVirgulas()">
+      </form>
+    </div>
+
+    <div class="fundo">
+
+      <h3 class="white"> Adicionar <span class="amarelo1">aspas e vírgula</span> entre os códigos:</h3>
+      <form class="textoinfo" name="form1">
+        <input id="text2" class="caixatexto" type=text name="texto" placeholder="Ex.: LV123456 LV654321 LV987654 LV753159">
+        <input class="botao" value="Adicionar!" type=button onClick="adicionarAspasEVirgulas()">
+      </form>
+    </div>
+    <div>
+      <button class="botaolimpar" type="button" onclick="ClearFields();">Limpar Campos</button>
+    </div>
+  </div>
+</body>
+
+</html>
